@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: API Estados do Brasil
+  description: API para administrar estados por regiao
+  version: 0.0.1
+  termsOfService: https//lacademmia.com/termos
+  contact:
+    name: Suporte a Devs
+    email: contactosupport@gmail.com
+  license:
+    name: Licenca GPLv3
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+externalDocs:
+  description: Documentacao sobre a API
+  url: https://lacademia.com/document
+servers: 
+  url: http://localhost:8080
+  description: API de Testes
+paths:
+  /api/states:
+    get:
+      summary: Recupera todos os estados registrados
+      responses:
+        200: 
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nome:
+                    type: string
+                  regiao:
+                    type: string
+                  populacao:
+                    type: integer
+                  capital:
+                    type: string
+                  area:
+                    type: integer
