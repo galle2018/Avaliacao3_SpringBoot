@@ -1,0 +1,178 @@
+openapi: 3.0.1
+info:
+  title: API Estados do Brasil
+  description: API para administrar Estados
+    version: 0.0.1
+  termsOfService: https//lacademmia.com/termos
+  contact:
+    name: Suporte a Devs
+    email: contactosupport@gmail.com
+  license:
+    name: Licenca GPLv3
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+externalDocs:
+  description: Documentacao sobre a API
+  url: https://lacademia.com/document
+servers: 
+  url: http://localhost:8080
+  description: API de Testes
+paths:
+  /api/states:
+    get:
+      summary: Recupera todos os registros
+      responses:
+        200: 
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: ""
+                  type: object
+                  properties:
+                    id:
+                      type: Long
+                    nome:
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: Long
+                    capital:
+                      type: string
+                    area:
+                      type: Long
+                    dataDeFundacao:
+                      type: string
+                    tempoDesdeFundacao:
+                      type: Integer
+          post:
+            summary: Ingreso de um novo registro
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      nome:
+                            type: string
+                          regiao:
+                            type: string
+                          populacao:
+                            type: Long
+                          capital:
+                            type: string
+                          area:
+                            type: Long
+                          dataDeFundacao:
+                            type: string
+                          tempoDesdeFundacao:
+                            type: Integer
+              responses:
+                201:
+                  description: "Sucesso"
+                  content:
+                    application/json:
+                      schema:
+                        $ref: ""
+                          type: object
+                          properties:
+                            id:
+                              type: Long
+                            nome:
+                              type: string
+                            regiao:
+                              type: string
+                            populacao:
+                              type: Long
+                            capital:
+                              type: string
+                            area:
+                              type: Long
+                            dataDeFundacao:
+                              type: string
+                            tempoDesdeFundacao:
+                              type: Integer
+  /api/states{id}:
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera um registro por id
+      responses:
+        200: 
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: ""
+                  type: object
+                  properties:
+                    id:
+                      type: Long
+                    nome:
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: Long
+                    capital:
+                      type: string
+                    area:
+                      type: Long
+                    dataDeFundacao:
+                      type: string
+                    tempoDesdeFundacao:
+                      type: Integer
+  /api/states{id}:
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+      content:
+            application/json:
+              schema:
+                $ref: ""
+                  type: object
+                  properties:                   
+                    nome:
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: Long
+                    capital:
+                      type: string
+                    area:
+                      type: Long
+                    dataDeFundacao:
+                      type: string 
+        in: body
+        required: true   
+    put:
+      summary: Atualiza um estado registrado por id
+      responses:
+        200: 
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: ""
+                  type: object
+                  properties:                   
+                    nome:
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: Long
+                    capital:
+                      type: string
+                    area:
+                      type: Long
+                    dataDeFundacao:
+                      type: string                    
